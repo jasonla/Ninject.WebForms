@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ninject.WebForms.Web", "Ninject.WebForms.Web\Ninject.WebForms.Web.csproj", "{BC837030-4615-4C2D-B287-A9D2390CF0AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C18BE924-8D38-4596-AAA5-FDB54C3EED99}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\Nuget.config = .nuget\Nuget.config
+		Readme.md = Readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ninject.WebForms.Services", "Ninject.WebForms.Services\Ninject.WebForms.Services.csproj", "{83D6814B-2DC7-4D02-AF30-C6E1A33ABA80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ninject.WebForms.Models", "Ninject.WebForms.Models\Ninject.WebForms.Models.csproj", "{530F1A35-FD28-4ED5-93B4-5660561EE659}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC837030-4615-4C2D-B287-A9D2390CF0AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC837030-4615-4C2D-B287-A9D2390CF0AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC837030-4615-4C2D-B287-A9D2390CF0AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC837030-4615-4C2D-B287-A9D2390CF0AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83D6814B-2DC7-4D02-AF30-C6E1A33ABA80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83D6814B-2DC7-4D02-AF30-C6E1A33ABA80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83D6814B-2DC7-4D02-AF30-C6E1A33ABA80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83D6814B-2DC7-4D02-AF30-C6E1A33ABA80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{530F1A35-FD28-4ED5-93B4-5660561EE659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{530F1A35-FD28-4ED5-93B4-5660561EE659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{530F1A35-FD28-4ED5-93B4-5660561EE659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{530F1A35-FD28-4ED5-93B4-5660561EE659}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE43017F-07C8-4BC5-A088-D42932FD3D3E}
+	EndGlobalSection
+EndGlobal
