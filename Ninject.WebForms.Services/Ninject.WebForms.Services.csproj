@@ -34,6 +34,15 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.8.0\lib\net46\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="SerilogWeb.Classic, Version=5.0.0.0, Culture=neutral, PublicKeyToken=9462ddd55fbc0e7f, processorArchitecture=MSIL">
+      <HintPath>..\packages\SerilogWeb.Classic.5.0.52\lib\net45\SerilogWeb.Classic.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,9 +57,13 @@
     <Compile Include="Interfaces\IFirstService.cs" />
     <Compile Include="Interfaces\IObjectScopedByRequest.cs" />
     <Compile Include="Interfaces\ISecondService.cs" />
+    <Compile Include="Interfaces\IThirdService.cs" />
+    <Compile Include="Interfaces\ISingletonObject.cs" />
+    <Compile Include="SingletonObject.cs" />
     <Compile Include="ObjectScopedByRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecondService.cs" />
+    <Compile Include="ThirdService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

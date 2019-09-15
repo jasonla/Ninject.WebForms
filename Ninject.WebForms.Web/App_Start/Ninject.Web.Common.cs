@@ -1,12 +1,15 @@
-using System;
-using System.Net.Http;
-using System.Web;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject.Web.Common;
 using Ninject.Web.Common.WebHost;
 using Ninject.WebForms.Services;
 using Ninject.WebForms.Services.Interfaces;
 using Ninject.WebForms.Web;
+using Serilog;
+using Serilog.Formatting.Compact;
+using SerilogWeb.Classic.Enrichers;
+using System;
+using System.Net.Http;
+using System.Web;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
@@ -27,7 +30,7 @@ namespace Ninject.WebForms.Web
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
 
             bootstrapper.Initialize(CreateKernel);
-            HttpRuntime.WebObjectActivator = new NinjectWebFormsServiceActivator(bootstrapper.Kernel);
+
         }
 
         /// <summary>
@@ -67,17 +70,37 @@ namespace Ninject.WebForms.Web
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            // InRequestScope. This works, but you had better make sure all of the objects in this dependency graph
-            // are either transient or InRequestScope
+
+            Log.Logger = new LoggerConfiguration()
+                .Enrich.With<HttpRequestIdEnricher>()
+                .Enrich.With<HttpRequestClientHostIPEnricher>()
+                .Enrich.With<HttpRequestClientHostNameEnricher>()
+                .Enrich.With<HttpRequestIdEnricher>()
+                .Enrich.With<HttpRequestNumberEnricher>()
+                .Enrich.With<HttpRequestNumberEnricher>()
+                .Enrich.With<HttpRequestTraceIdEnricher>()
+                .Enrich.With<HttpRequestTypeEnricher>()
+                .Enrich.With<HttpRequestUrlEnricher>()
+                .Enrich.With<HttpRequestUrlReferrerEnricher>()
+                .Enrich.With<HttpRequestUserAgentEnricher>()
+                .Enrich.With<HttpSessionIdEnricher>()
+                .WriteTo.Debug(new CompactJsonFormatter())
+                .CreateLogger();
+
+            kernel.Bind<ILogger>().ToConstant(Log.Logger).InSingletonScope();
+
             kernel.Bind<IFirstService>().To<FirstService>().InRequestScope();
             kernel.Bind<ISecondService>().To<SecondService>().InRequestScope();
+            kernel.Bind<IThirdService>().To<ThirdService>().InRequestScope();
             kernel.Bind<IObjectScopedByRequest>().To<ObjectScopedByRequest>().InRequestScope();
-            
-            kernel.Bind<HttpClient>().ToConstant(new HttpClient {BaseAddress = new Uri("https://my-json-server.typicode.com/typicode/demo/")})
+
+            kernel.Bind<ISingletonObject>().To<SingletonObject>().InSingletonScope();
+
+            kernel.Bind<HttpClient>().ToConstant(new HttpClient { BaseAddress = new Uri("https://my-json-server.typicode.com/typicode/demo/") })
                 .WhenInjectedInto<IFirstService>()
                 .InSingletonScope();
 
-            kernel.Bind<HttpClient>().ToConstant(new HttpClient {BaseAddress = new Uri("https://jsonplaceholder.typicode.com/")})
+            kernel.Bind<HttpClient>().ToConstant(new HttpClient { BaseAddress = new Uri("https://jsonplaceholder.typicode.com/") })
                 .WhenInjectedInto<ISecondService>()
                 .InSingletonScope();
 

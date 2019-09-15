@@ -22,15 +22,6 @@ namespace Ninject.WebForms.Web {
         protected global::System.Web.UI.WebControls.Label firstServiceId;
         
         /// <summary>
-        /// secondServiceId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label secondServiceId;
-        
-        /// <summary>
         /// ScopedObjectIdInFirstService control.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,15 @@ namespace Ninject.WebForms.Web {
         protected global::System.Web.UI.WebControls.Label ScopedObjectIdInFirstService;
         
         /// <summary>
+        /// secondServiceId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label secondServiceId;
+        
+        /// <summary>
         /// ScopedObjectIdInSecondService control.
         /// </summary>
         /// <remarks>
@@ -47,6 +47,60 @@ namespace Ninject.WebForms.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ScopedObjectIdInSecondService;
+        
+        /// <summary>
+        /// thirdServiceId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label thirdServiceId;
+        
+        /// <summary>
+        /// thirdServiceGetFirstServiceId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label thirdServiceGetFirstServiceId;
+        
+        /// <summary>
+        /// thirdServiceFirstServiceDependencyGuid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label thirdServiceFirstServiceDependencyGuid;
+        
+        /// <summary>
+        /// thirdServiceGetSecondServiceId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label thirdServiceGetSecondServiceId;
+        
+        /// <summary>
+        /// thirdServiceSecondServiceDependencyGuid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label thirdServiceSecondServiceDependencyGuid;
+        
+        /// <summary>
+        /// singletonObjectId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label singletonObjectId;
         
         /// <summary>
         /// ddl_BlogPosts control.

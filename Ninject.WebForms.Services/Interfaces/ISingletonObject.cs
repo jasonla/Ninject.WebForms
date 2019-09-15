@@ -2,7 +2,7 @@
 
 namespace Ninject.WebForms.Services.Interfaces
 {
-    public interface IObjectScopedByRequest : IDisposable
+    public interface ISingletonObject
     {
         Guid Id { get; }
     }

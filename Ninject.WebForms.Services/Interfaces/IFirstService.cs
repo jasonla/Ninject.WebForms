@@ -8,8 +8,7 @@ namespace Ninject.WebForms.Services.Interfaces
     public interface IFirstService
     {
         Guid Id { get; }
-
-        string SetUsername();
+        Guid GetDependencyGuid();
         Task<List<BlogPost>> GetBlogPosts();
     }
 }

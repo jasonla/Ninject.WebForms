@@ -9,16 +9,15 @@ namespace Ninject.WebForms.Web
             BindingFlags.Instance | BindingFlags.NonPublic |
             BindingFlags.Public | BindingFlags.CreateInstance;
 
-        private readonly IKernel kernel;
+        private readonly IKernel _kernel;
 
-        public NinjectWebFormsServiceActivator(IKernel kernel) =>
-            this.kernel = kernel;
+        public NinjectWebFormsServiceActivator(IKernel kernel) => _kernel = kernel;
 
         public object GetService(Type serviceType)
         {
-            if (kernel.CanResolve(serviceType) || (serviceType.Namespace != null && serviceType.Namespace.StartsWith("ASP")))
+            if (_kernel.CanResolve(serviceType) || serviceType.Namespace != null && serviceType.Namespace.StartsWith("ASP"))
             {
-                return kernel.GetService(serviceType);
+                return _kernel.GetService(serviceType);
             }
 
             return Activator.CreateInstance(serviceType, flag, null, null, null);

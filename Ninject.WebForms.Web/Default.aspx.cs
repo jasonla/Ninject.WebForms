@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Ninject.WebForms.Services.Interfaces;
+using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Ninject.WebForms.Services;
-using Ninject.WebForms.Services.Interfaces;
 
 namespace Ninject.WebForms.Web
 {
@@ -10,22 +9,36 @@ namespace Ninject.WebForms.Web
     {
         private readonly IFirstService _firstService;
         private readonly ISecondService _secondService;
+        private readonly IThirdService _thirdService;
+        private readonly ISingletonObject _singleton;
 
-        public _Default(IFirstService firstService, ISecondService secondService)
+        public _Default(IFirstService firstService, ISecondService secondService, IThirdService thirdService, ISingletonObject singleton)
         {
             _firstService = firstService;
             _secondService = secondService;
+            _thirdService = thirdService;
+            _singleton = singleton;
         }
 
 
         protected async void Page_Load(object sender, EventArgs e)
         {
 
-            ScopedObjectIdInFirstService.Text = _firstService.SetUsername();
-            ScopedObjectIdInSecondService.Text = _secondService.SetFirstName();
+            ScopedObjectIdInFirstService.Text = _firstService.GetDependencyGuid().ToString();
+            ScopedObjectIdInSecondService.Text = _secondService.GetDependencyGuid().ToString();
 
             firstServiceId.Text = _firstService.Id.ToString();
             secondServiceId.Text = _secondService.Id.ToString();
+
+            thirdServiceId.Text = _thirdService.Id.ToString();
+            thirdServiceGetFirstServiceId.Text = _thirdService.GetFirstServiceGuid().ToString();
+            thirdServiceGetSecondServiceId.Text = _thirdService.GetSecondServiceGuid().ToString();
+
+            thirdServiceFirstServiceDependencyGuid.Text = _thirdService.FirstService.GetDependencyGuid().ToString();
+            thirdServiceSecondServiceDependencyGuid.Text = _thirdService.SecondService.GetDependencyGuid().ToString();
+
+            singletonObjectId.Text = _singleton.Id.ToString();
+
 
             var blogPosts = await _firstService.GetBlogPosts();
 

@@ -4,58 +4,123 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h1>Web Forms DI testing</h1>
+            <div class="page-header">
+                <h2>Testing DI in Web Forms with <a href="https://github.com/ninject/Ninject" target="_blank">Ninject</a></h2>
+            </div>
         </div>
     </div>
 
     <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">InRequestScope</h3>
+                </div>
+                <div class="panel-body">
 
-        <div class="col-md-4">
-            <h2>Singleton</h2>
+                    <ul>
+                        <li>
+                            <p>
+                                Guid of <span style="color: red;">IFirstService</span>:<br />
+                                <asp:Label runat="server" ID="firstServiceId" ForeColor="red"></asp:Label>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            Guid of <span style="color: gray;">IScopedObject</span> used in <span style="color: red;">IFirstService</span>:<br />
+                                            <asp:Label runat="server" ID="ScopedObjectIdInFirstService" ForeColor="gray"></asp:Label>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Guid of <span style="color: blue;">ISecondService</span><br />
+
+                                <asp:Label runat="server" ID="secondServiceId" ForeColor="blue"></asp:Label>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            Guid of <span style="color: gray;">IScopedObject</span> used in <span style="color: blue;">ISecondService</span>:<br />
+                                            <asp:Label runat="server" ID="ScopedObjectIdInSecondService" ForeColor="gray"></asp:Label>
+                                        </p>
+                                    </li>
+                                </ul>
+
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Guid of <span style="color: green;">IThirdService</span><br />
+                                <asp:Label runat="server" ID="thirdServiceId" ForeColor="green"></asp:Label>
+                            </p>
+                            <ul>
+                                <li>Guid of <span style="color: red;">IFirstService</span> injected into <span style="color: green;">IThirdService</span><br />
+                                    <asp:Label runat="server" ID="thirdServiceGetFirstServiceId" ForeColor="red"></asp:Label>
+                                    <ul>
+                                        <li>
+                                            <p>
+                                                Guid of IScopedObject used in <span style="color: red;">IFirstService</span> of <span style="color: green;">IThirdService</span>:<br />
+                                                <asp:Label runat="server" ID="thirdServiceFirstServiceDependencyGuid" ForeColor="gray"></asp:Label>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Guid of <span style="color: blue;">ISecondService</span> injected into <span style="color: green;">IThirdService</span><br />
+                                    <asp:Label runat="server" ID="thirdServiceGetSecondServiceId" ForeColor="blue"></asp:Label>
+                                    <ul>
+                                        <li>
+                                            <p>
+                                                Guid of IScopedObject used in <span style="color: blue;">ISecondService</span> of <span style="color: green;">IThirdService</span>:<br />
+                                                <asp:Label runat="server" ID="thirdServiceSecondServiceDependencyGuid" ForeColor="gray"></asp:Label>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
 
         </div>
 
         <div class="col-md-4">
-            <h2>InRequestScope</h2>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">InSingletonScope</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        Guid of <span style="color: red;">ISingletonObject</span><br />
+                        <asp:Label runat="server" ID="singletonObjectId"></asp:Label>
+                    </p>
+                </div>
 
-            <h3>FirstService</h3>
-            <p>
-                <asp:Label runat="server" ID="firstServiceId"></asp:Label>
-            </p>
-
-            <h3>SecondService</h3>
-            <p>
-                <asp:Label runat="server" ID="secondServiceId"></asp:Label>
-            </p>
-
-            <h3>ScopedObject</h3>
-            <p>
-                This is in request scope. The values should match, but also change on each request.
-            </p>
-            <p>
-                ID of IScopedObject used in FirstService:<br />
-                <asp:Label runat="server" ID="ScopedObjectIdInFirstService"></asp:Label>
-            </p>
-            <p>
-                ID of IScopedObject used in SecondService:<br />
-                <asp:Label runat="server" ID="ScopedObjectIdInSecondService"></asp:Label>
-            </p>
-        </div>
-
-        <div class="col-md-4">
-            <h2>HttpClient requests and binding</h2>
-
-            <div>
-                <p>Dropdown list populated from <a href="https://my-json-server.typicode.com/typicode/demo/posts">https://my-json-server.typicode.com/typicode/demo/posts</a></p>
-                <asp:DropDownList runat="server" ID="ddl_BlogPosts" />
-            </div>
-            <div>
-                <p>
-                    Todo from <a href="https://jsonplaceholder.typicode.com/todos/1">https://jsonplaceholder.typicode.com/todos/1</a>
-                    <asp:Label runat="server" ID="ToDoItem_Title"></asp:Label>
-                </p>
             </div>
 
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">HttpClient conditional binding</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p>Dropdown list populated from <a href="https://my-json-server.typicode.com/typicode/demo/posts">https://my-json-server.typicode.com/typicode/demo/posts</a></p>
+                            <asp:DropDownList runat="server" ID="ddl_BlogPosts" />
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p>Todo title from <a href="https://jsonplaceholder.typicode.com/todos/1">https://jsonplaceholder.typicode.com/todos/1</a></p>
+                            <p>
+                                <asp:Label runat="server" ID="ToDoItem_Title"></asp:Label>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

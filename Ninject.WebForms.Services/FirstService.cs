@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Ninject.WebForms.Models.MyJsonServer;
 using Ninject.WebForms.Services.Interfaces;
+using Serilog;
 
 namespace Ninject.WebForms.Services
 {
@@ -12,21 +13,25 @@ namespace Ninject.WebForms.Services
     {
         private readonly IObjectScopedByRequest _objectScopedByRequest;
         private readonly HttpClient _client;
+        private readonly ILogger _logger;
 
         public Guid Id { get; }
 
-        public FirstService(IObjectScopedByRequest objectScopedByRequest, HttpClient client)
+        public FirstService(ILogger logger, IObjectScopedByRequest objectScopedByRequest, HttpClient client)
         {
             Id = Guid.NewGuid();
 
+            _logger = logger;
             _objectScopedByRequest = objectScopedByRequest;
             _client = client;
+
+            _logger.Information("First Id: {Id}", Id);
         }
 
-        public string SetUsername()
+        public Guid GetDependencyGuid()
         {
-            _objectScopedByRequest.Username = "jasonla";
-            return _objectScopedByRequest.Id.ToString();
+            _logger.Information("First GetDependencyGuid: {Id}", _objectScopedByRequest); 
+            return _objectScopedByRequest.Id;
         }
 
         public async Task<List<BlogPost>> GetBlogPosts()

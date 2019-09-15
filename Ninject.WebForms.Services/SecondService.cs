@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
 using Ninject.WebForms.Models.JsonPlaceholder;
+using Ninject.WebForms.Services.Interfaces;
+using Serilog;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Ninject.WebForms.Services.Interfaces;
 
 namespace Ninject.WebForms.Services
 {
@@ -12,21 +13,25 @@ namespace Ninject.WebForms.Services
     {
         private readonly IObjectScopedByRequest _objectScopedByRequest;
         private readonly HttpClient _client;
+        private readonly ILogger _logger;
         
         public Guid Id { get; }
 
-        public SecondService(IObjectScopedByRequest objectScopedByRequest, HttpClient client)
+        public SecondService(ILogger logger, IObjectScopedByRequest objectScopedByRequest, HttpClient client)
         {
             Id = Guid.NewGuid();
 
+            _logger = logger;
             _objectScopedByRequest = objectScopedByRequest;
             _client = client;
+
+            _logger.Information("Second Id: {Id}", Id);
         }
 
-        public string SetFirstName()
+        public Guid GetDependencyGuid()
         {
-            _objectScopedByRequest.FirstName = "Jason";
-            return _objectScopedByRequest.Id.ToString();
+            _logger.Information("Second GetDependencyGuid Id: {Id}", _objectScopedByRequest.Id);
+            return _objectScopedByRequest.Id;
         }
 
         public async Task<ToDoItem> GetToDoItem()
