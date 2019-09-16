@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Ninject.WebForms.Models.MyJsonServer;
 using Ninject.WebForms.Services.Interfaces;
 using Serilog;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Ninject.WebForms.Services
 {

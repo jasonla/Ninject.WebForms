@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Ninject.WebForms.Web._Default" Async="true" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+    <%@ Register src="ViewSwitcher.ascx" tagName="Switcher" tagPrefix="TSwitcher" %>
+    <TSwitcher:Switcher ID="Thing" runat="server"></TSwitcher:Switcher>
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">

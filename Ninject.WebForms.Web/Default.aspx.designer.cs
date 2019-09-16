@@ -13,6 +13,15 @@ namespace Ninject.WebForms.Web {
     public partial class _Default {
         
         /// <summary>
+        /// Thing control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ninject.WebForms.Web.ViewSwitcher Thing;
+        
+        /// <summary>
         /// firstServiceId control.
         /// </summary>
         /// <remarks>

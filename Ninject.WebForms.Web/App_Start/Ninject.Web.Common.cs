@@ -84,7 +84,8 @@ namespace Ninject.WebForms.Web
                 .Enrich.With<HttpRequestUrlReferrerEnricher>()
                 .Enrich.With<HttpRequestUserAgentEnricher>()
                 .Enrich.With<HttpSessionIdEnricher>()
-                .WriteTo.Debug(new CompactJsonFormatter())
+                .WriteTo.Debug()
+                .MinimumLevel.Debug()
                 .CreateLogger();
 
             kernel.Bind<ILogger>().ToConstant(Log.Logger).InSingletonScope();

@@ -2,19 +2,28 @@ using System;
 using System.Web;
 using System.Web.Routing;
 using Microsoft.AspNet.FriendlyUrls.Resolvers;
+using Serilog;
 
 namespace Ninject.WebForms.Web
 {
     public partial class ViewSwitcher : System.Web.UI.UserControl
     {
+        private ILogger _logger;
         protected string CurrentView { get; private set; }
 
         protected string AlternateView { get; private set; }
 
         protected string SwitchUrl { get; private set; }
 
+        public ViewSwitcher(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            _logger.Information("In ViewSwitcher");
+
             // Determine current view
             var isMobile = WebFormsFriendlyUrlResolver.IsMobileView(new HttpContextWrapper(Context));
             CurrentView = isMobile ? "Mobile" : "Desktop";
