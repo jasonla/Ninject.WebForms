@@ -5,7 +5,6 @@ using Ninject.WebForms.Services;
 using Ninject.WebForms.Services.Interfaces;
 using Ninject.WebForms.Web;
 using Serilog;
-using Serilog.Formatting.Compact;
 using SerilogWeb.Classic.Enrichers;
 using System;
 using System.Net.Http;
@@ -52,6 +51,7 @@ namespace Ninject.WebForms.Web
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+                kernel.Components.Add<INinjectHttpApplicationPlugin, NinjectMvcHttpApplicationPlugin>();
 
                 RegisterServices(kernel);
 

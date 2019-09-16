@@ -1,6 +1,7 @@
 # Ninject.WebForms
-An updated demonstration of how to configure Ninject in WebForms in .NET 4.7.2
+Web Forms now supports [dependency injection in .NET 4.7.2](https://docs.microsoft.com/en-us/dotnet/framework/whats-new/#asp-net472).
 
-### Important
+This repo demonstrates how to configure a project with [Ninject](https://github.com/ninject/Ninject) with Web Forms, including support for
+per web request scoping (`InRequestScope()`)
 
-Yes, it's a Web Forms project, BUT you NEED the Ninject.MVC5 and Microsoft.AspNet.Mvc packages to make request scoping work correctly.
+Detailed instructions and a guide to follow later &trade;.

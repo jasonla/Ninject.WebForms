@@ -18,7 +18,7 @@ namespace Ninject.WebForms.Services
 
             FirstService = firstService;
             SecondService = secondService;
-            _logger.Information("First Id: {Id}", Id);
+            _logger.Information("Third Id: {Id}", Id);
         }
 
         public Guid GetFirstServiceGuid()

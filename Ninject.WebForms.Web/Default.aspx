@@ -108,7 +108,7 @@
                 <div class="panel-body">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <p>Dropdown list populated from <a href="https://my-json-server.typicode.com/typicode/demo/posts">https://my-json-server.typicode.com/typicode/demo/posts</a></p>
+                            <p>Dropdown list populated from <a href="https://my-json-server.typicode.com/typicode/demo/posts">https://my-json-server.typicode.com/typicode/demo/posts</a> via async call.</p>
                             <asp:DropDownList runat="server" ID="ddl_BlogPosts" />
                         </div>
                     </div>
