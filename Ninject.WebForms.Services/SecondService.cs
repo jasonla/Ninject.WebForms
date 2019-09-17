@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace Ninject.WebForms.Services
 {
-
     public class SecondService : ISecondService
     {
         private readonly IObjectScopedByRequest _objectScopedByRequest;
@@ -26,12 +25,12 @@ namespace Ninject.WebForms.Services
             _objectScopedByRequest = objectScopedByRequest;
             _client = client;
 
-            _logger.Information("Second Id: {Id}", Id);
+            _logger.Information("SecondService Constructor called. {Id}", Id);
         }
 
         public Guid GetDependencyGuid()
         {
-            _logger.Information("Second GetDependencyGuid Id: {Id}", _objectScopedByRequest.Id);
+            _logger.Information("SecondService.GetDependencyGuid: {Id}", _objectScopedByRequest.Id);
             return _objectScopedByRequest.Id;
         }
 

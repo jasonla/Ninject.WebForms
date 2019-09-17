@@ -14,7 +14,7 @@ namespace Ninject.WebForms.Services
             Id = Guid.NewGuid();
             _logger = logger.ForContext<SingletonObject>();
 
-            _logger.Information("In singleton {Id}", Id);
+            _logger.Information("SingletonObject Constructor called. {Id}", Id);
         }
     }
 }

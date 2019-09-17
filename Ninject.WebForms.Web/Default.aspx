@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Ninject.WebForms.Web._Default" Async="true" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <%@ Register src="ViewSwitcher.ascx" tagName="Switcher" tagPrefix="TSwitcher" %>
+    <%@ Register Src="ViewSwitcher.ascx" TagName="Switcher" TagPrefix="TSwitcher" %>
     <TSwitcher:Switcher ID="Thing" runat="server"></TSwitcher:Switcher>
     <div class="row">
         <div class="col-md-12">
@@ -109,7 +109,14 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <p>Dropdown list populated from <a href="https://my-json-server.typicode.com/typicode/demo/posts">https://my-json-server.typicode.com/typicode/demo/posts</a> via async call.</p>
-                            <asp:DropDownList runat="server" ID="ddl_BlogPosts" />
+
+                            <div class="form-group">
+                                <asp:DropDownList runat="server" ID="ddl_BlogPosts" ClientIDMode="Static" AutoPostBack="True" CssClass="form-control" OnSelectedIndexChanged="OnBlogPostSelectedItemChange" />
+                            </div>
+                            <div class="form-group">
+                                <asp:Label runat="server" ID="selectedBlogPostText"></asp:Label>
+                            </div>
+
                         </div>
                     </div>
                     <div class="panel panel-default">

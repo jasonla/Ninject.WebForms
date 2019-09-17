@@ -8,7 +8,7 @@ namespace Ninject.WebForms.Web
 {
     public partial class ViewSwitcher : System.Web.UI.UserControl
     {
-        private ILogger _logger;
+        private readonly ILogger _logger;
         protected string CurrentView { get; private set; }
 
         protected string AlternateView { get; private set; }
@@ -18,11 +18,12 @@ namespace Ninject.WebForms.Web
         public ViewSwitcher(ILogger logger)
         {
             _logger = logger;
+            _logger.Information("ViewSwitcher Constructor called.");
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _logger.Information("In ViewSwitcher");
+            _logger.Information("In ViewSwitcher.Page_Load");
 
             // Determine current view
             var isMobile = WebFormsFriendlyUrlResolver.IsMobileView(new HttpContextWrapper(Context));

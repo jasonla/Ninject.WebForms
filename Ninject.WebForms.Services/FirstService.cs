@@ -26,12 +26,12 @@ namespace Ninject.WebForms.Services
             _objectScopedByRequest = objectScopedByRequest;
             _client = client;
 
-            _logger.Information("First Id: {Id}", Id);
+            _logger.Information("FirstService Constructor called. {Id}", Id);
         }
 
         public Guid GetDependencyGuid()
         {
-            _logger.Information("First GetDependencyGuid: {Id}", _objectScopedByRequest);
+            _logger.Information("FirstService.GetDependencyGuid: {Id}", _objectScopedByRequest.Id);
             return _objectScopedByRequest.Id;
         }
 
