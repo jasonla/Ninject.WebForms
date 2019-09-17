@@ -4,6 +4,7 @@ using Ninject.WebForms.Services.Interfaces;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -30,7 +31,7 @@ namespace Ninject.WebForms.Services
 
         public Guid GetDependencyGuid()
         {
-            _logger.Information("First GetDependencyGuid: {Id}", _objectScopedByRequest); 
+            _logger.Information("First GetDependencyGuid: {Id}", _objectScopedByRequest);
             return _objectScopedByRequest.Id;
         }
 
@@ -39,7 +40,13 @@ namespace Ninject.WebForms.Services
             var response = await _client.GetAsync("posts");
             if (response.IsSuccessStatusCode)
             {
-                return JsonConvert.DeserializeObject<List<BlogPost>>(await response.Content.ReadAsStringAsync());
+                using (var responseStream = await response.Content.ReadAsStreamAsync())
+                using (StreamReader st = new StreamReader(responseStream))
+                using (JsonReader reader = new JsonTextReader(st))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    return serializer.Deserialize<List<BlogPost>>(reader);
+                }
             }
 
             return null;

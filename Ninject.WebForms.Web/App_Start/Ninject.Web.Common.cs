@@ -51,7 +51,7 @@ namespace Ninject.WebForms.Web
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-                kernel.Components.Add<INinjectHttpApplicationPlugin, NinjectMvcHttpApplicationPlugin>();
+                kernel.Components.Add<INinjectHttpApplicationPlugin, NinjectWebFormsHttpApplicationPlugin>();
 
                 RegisterServices(kernel);
 

@@ -1,5 +1,11 @@
 ﻿// -------------------------------------------------------------------------------------------------
-// <copyright file="NinjectMvcHttpApplicationPlugin.cs" company="Ninject Project Contributors">
+// Modified by Jason La (2019).
+// Comment out ASP.NET MVC specific code. Rename class from and file name from
+// NinjectMvcHttpApplicationPlugin to NinjectWebFormsHttpApplicationPlugin for clarity.
+// -------------------------------------------------------------------------------------------------
+
+// -------------------------------------------------------------------------------------------------
+// <copyright file="NinjectWebFormsHttpApplicationPlugin.cs" company="Ninject Project Contributors">
 //   Copyright (c) 2010 bbv Software Services AG. All rights reserved.
 //   Copyright (c) 2010-2017 Ninject Project Contributors. All rights reserved.
 //
@@ -31,7 +37,7 @@ namespace Ninject.WebForms.Web
     /// <summary>
     /// The web plugin implementation for MVC
     /// </summary>
-    public class NinjectMvcHttpApplicationPlugin : NinjectComponent, INinjectHttpApplicationPlugin
+    public class NinjectWebFormsHttpApplicationPlugin : NinjectComponent, INinjectHttpApplicationPlugin
     {
         /// <summary>
         /// The ninject kernel.
@@ -39,10 +45,10 @@ namespace Ninject.WebForms.Web
         private readonly IKernel kernel;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="NinjectMvcHttpApplicationPlugin"/> class.
+        /// Initializes a new instance of the <see cref="NinjectWebFormsHttpApplicationPlugin"/> class.
         /// </summary>
         /// <param name="kernel">The kernel.</param>
-        public NinjectMvcHttpApplicationPlugin(IKernel kernel)
+        public NinjectWebFormsHttpApplicationPlugin(IKernel kernel)
         {
             this.kernel = kernel;
         }
