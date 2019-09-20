@@ -29,3 +29,23 @@ textarea {
         padding: 0;
     }
 }
+
+.firstService {
+    /*font-weight: bold;*/
+    color: red;
+}
+
+.secondService {
+    /*font-weight: bold;*/
+    color: blue;
+}
+
+.thirdService {
+    /*font-weight: bold;*/
+    color: green;
+}
+
+.scopedObject {
+    /*font-weight: bold;*/
+    color: goldenrod;
+}
