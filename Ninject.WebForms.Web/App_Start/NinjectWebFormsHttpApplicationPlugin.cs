@@ -1,11 +1,14 @@
 ﻿// -------------------------------------------------------------------------------------------------
 // Modified by Jason La (2019).
-// Comment out ASP.NET MVC specific code. Rename class from and file name from
+// Comment out ASP.NET MVC specific code. Rename class and file name from
 // NinjectMvcHttpApplicationPlugin to NinjectWebFormsHttpApplicationPlugin for clarity.
+// 
+// This is only necessary if you have a pure Web Forms application. If you have a web app that is a
+// mixture of Web Forms and MVC5, this class is not necessary.
 // -------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------
-// <copyright file="NinjectWebFormsHttpApplicationPlugin.cs" company="Ninject Project Contributors">
+// <copyright file="NinjectMvcHttpApplicationPlugin.cs" company="Ninject Project Contributors">
 //   Copyright (c) 2010 bbv Software Services AG. All rights reserved.
 //   Copyright (c) 2010-2017 Ninject Project Contributors. All rights reserved.
 //

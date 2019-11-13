@@ -11,7 +11,7 @@ using System.Net.Http;
 using System.Web;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(NinjectWebCommon), "Stop")]
 
 namespace Ninject.WebForms.Web
 {
@@ -51,6 +51,11 @@ namespace Ninject.WebForms.Web
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+
+                // The following line is only necessary if you're using a pure Web Forms app.
+                // If your app is a mix of MVC and Web Forms (meaning you have the Microsoft.AspNet.Mvc package installed),
+                // then delete this line. You should instead install the Ninject.MVC5 Nuget package in addition to the
+                // other Ninject packages already included in this project.
                 kernel.Components.Add<INinjectHttpApplicationPlugin, NinjectWebFormsHttpApplicationPlugin>();
 
                 RegisterServices(kernel);
