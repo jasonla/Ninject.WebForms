@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ninject.WebForms.Web {
-    
-    
-    public partial class _Default {
-        
+namespace Ninject.WebForms.Web
+{
+
+
+    public partial class _Default
+    {
+
         /// <summary>
         /// Thing control.
         /// </summary>
@@ -20,88 +22,88 @@ namespace Ninject.WebForms.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ninject.WebForms.Web.ViewSwitcher Thing;
-        
+
         /// <summary>
-        /// firstServiceId control.
+        /// BlogServiceId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label firstServiceId;
-        
+        protected global::System.Web.UI.WebControls.Label BlogServiceId;
+
         /// <summary>
-        /// ScopedObjectIdInFirstService control.
+        /// ScopedBlogService control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ScopedObjectIdInFirstService;
-        
+        protected global::System.Web.UI.WebControls.Label ScopedBlogService;
+
         /// <summary>
-        /// secondServiceId control.
+        /// TodoItemsServiceId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label secondServiceId;
-        
+        protected global::System.Web.UI.WebControls.Label TodoItemsServiceId;
+
         /// <summary>
-        /// ScopedObjectIdInSecondService control.
+        /// ScopedToDoItemsService control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ScopedObjectIdInSecondService;
-        
+        protected global::System.Web.UI.WebControls.Label ScopedToDoItemsService;
+
         /// <summary>
-        /// thirdServiceId control.
+        /// CombinedServiceId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label thirdServiceId;
-        
+        protected global::System.Web.UI.WebControls.Label CombinedServiceId;
+
         /// <summary>
-        /// thirdServiceGetFirstServiceId control.
+        /// CombinedServiceGetBlogServiceGuid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label thirdServiceGetFirstServiceId;
-        
+        protected global::System.Web.UI.WebControls.Label CombinedServiceGetBlogServiceGuid;
+
         /// <summary>
-        /// thirdServiceFirstServiceDependencyGuid control.
+        /// CombinedServiceBlogServiceGetDependencyGuid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label thirdServiceFirstServiceDependencyGuid;
-        
+        protected global::System.Web.UI.WebControls.Label CombinedServiceBlogServiceGetDependencyGuid;
+
         /// <summary>
-        /// thirdServiceGetSecondServiceId control.
+        /// CombinedServiceGetTodoItemsServiceGuid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label thirdServiceGetSecondServiceId;
-        
+        protected global::System.Web.UI.WebControls.Label CombinedServiceGetTodoItemsServiceGuid;
+
         /// <summary>
-        /// thirdServiceSecondServiceDependencyGuid control.
+        /// CombinedServiceTodoItemsServiceGetDependencyGuid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label thirdServiceSecondServiceDependencyGuid;
-        
+        protected global::System.Web.UI.WebControls.Label CombinedServiceTodoItemsServiceGetDependencyGuid;
+
         /// <summary>
         /// singletonObjectId control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Ninject.WebForms.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label singletonObjectId;
-        
+
         /// <summary>
         /// ddl_BlogPosts control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace Ninject.WebForms.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_BlogPosts;
-        
+
         /// <summary>
         /// selectedBlogPostText control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace Ninject.WebForms.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label selectedBlogPostText;
-        
+
         /// <summary>
         /// ToDoItem_Title control.
         /// </summary>

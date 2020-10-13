@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Ninject.WebForms.Services.Interfaces
 {
-    public interface ISecondService
+    public interface ITodoItemsService
     {
         Guid Id { get; }
         Guid GetDependencyGuid();

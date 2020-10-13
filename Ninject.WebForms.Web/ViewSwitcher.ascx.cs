@@ -1,8 +1,8 @@
+using Microsoft.AspNet.FriendlyUrls.Resolvers;
+using Serilog;
 using System;
 using System.Web;
 using System.Web.Routing;
-using Microsoft.AspNet.FriendlyUrls.Resolvers;
-using Serilog;
 
 namespace Ninject.WebForms.Web
 {

@@ -7,16 +7,16 @@ namespace Ninject.WebForms.Web
 {
     public partial class _Default : Page
     {
-        private readonly IFirstService _firstService;
-        private readonly ISecondService _secondService;
-        private readonly IThirdService _thirdService;
+        private readonly IBlogService _blogService;
+        private readonly ITodoItemsService _todoItemsService;
+        private readonly ICombinedService _combinedService;
         private readonly ISingletonObject _singleton;
 
-        public _Default(IFirstService firstService, ISecondService secondService, IThirdService thirdService, ISingletonObject singleton)
+        public _Default(IBlogService blogService, ITodoItemsService todoItemsService, ICombinedService combinedService, ISingletonObject singleton)
         {
-            _firstService = firstService;
-            _secondService = secondService;
-            _thirdService = thirdService;
+            _blogService = blogService;
+            _todoItemsService = todoItemsService;
+            _combinedService = combinedService;
             _singleton = singleton;
         }
 
@@ -24,7 +24,7 @@ namespace Ninject.WebForms.Web
         {
             if (!IsPostBack)
             {
-                var blogPosts = await _firstService.GetBlogPosts();
+                var blogPosts = await _blogService.GetBlogPosts();
 
                 ddl_BlogPosts.DataSource = blogPosts;
                 ddl_BlogPosts.DataValueField = "Id";
@@ -32,21 +32,22 @@ namespace Ninject.WebForms.Web
                 ddl_BlogPosts.DataBind();
             }
 
-            var todoItem = await _secondService.GetToDoItem();
+            var todoItem = await _todoItemsService.GetToDoItem();
             ToDoItem_Title.Text = todoItem.Title;
 
-            ScopedObjectIdInFirstService.Text = _firstService.GetDependencyGuid().ToString();
-            ScopedObjectIdInSecondService.Text = _secondService.GetDependencyGuid().ToString();
+            ScopedBlogService.Text = _blogService.GetDependencyGuid().ToString();
+            ScopedToDoItemsService.Text = _todoItemsService.GetDependencyGuid().ToString();
 
-            firstServiceId.Text = _firstService.Id.ToString();
-            secondServiceId.Text = _secondService.Id.ToString();
+            BlogServiceId.Text = _blogService.Id.ToString();
+            TodoItemsServiceId.Text = _todoItemsService.Id.ToString();
 
-            thirdServiceId.Text = _thirdService.Id.ToString();
-            thirdServiceGetFirstServiceId.Text = _thirdService.GetFirstServiceGuid().ToString();
-            thirdServiceGetSecondServiceId.Text = _thirdService.GetSecondServiceGuid().ToString();
+            CombinedServiceId.Text = _combinedService.Id.ToString();
 
-            thirdServiceFirstServiceDependencyGuid.Text = _thirdService.FirstService.GetDependencyGuid().ToString();
-            thirdServiceSecondServiceDependencyGuid.Text = _thirdService.SecondService.GetDependencyGuid().ToString();
+            CombinedServiceGetBlogServiceGuid.Text = _combinedService.GetBlogServiceGuid().ToString();
+            CombinedServiceGetTodoItemsServiceGuid.Text = _combinedService.GetTodoItemsServiceGuid().ToString();
+
+            CombinedServiceBlogServiceGetDependencyGuid.Text = _combinedService.BlogService.GetDependencyGuid().ToString();
+            CombinedServiceTodoItemsServiceGetDependencyGuid.Text = _combinedService.TodoItemsService.GetDependencyGuid().ToString();
 
             singletonObjectId.Text = _singleton.Id.ToString();
         }

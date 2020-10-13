@@ -75,7 +75,8 @@ namespace Ninject.WebForms.Web
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-
+            // This is not necessary to get Ninject working. It's here to demonstrate that logging
+            // can now be injected into codebehind pages.
             Log.Logger = new LoggerConfiguration()
                 .Enrich.With<HttpRequestIdEnricher>()
                 .Enrich.With<HttpRequestClientHostIPEnricher>()
@@ -93,21 +94,27 @@ namespace Ninject.WebForms.Web
                 .MinimumLevel.Debug()
                 .CreateLogger();
 
+            // Resolve ILogger to the logger we just created above
             kernel.Bind<ILogger>().ToConstant(Log.Logger).InSingletonScope();
 
-            kernel.Bind<IFirstService>().To<FirstService>().InRequestScope();
-            kernel.Bind<ISecondService>().To<SecondService>().InRequestScope();
-            kernel.Bind<IThirdService>().To<ThirdService>().InRequestScope();
+            // All of these services and objects are InRequestScope, which means they are create once per web request, and are disposed
+            // once the web request is finished.
+            kernel.Bind<IBlogService>().To<BlogService>().InRequestScope();
+            kernel.Bind<ITodoItemsService>().To<TodoItemsService>().InRequestScope();
+            kernel.Bind<ICombinedService>().To<CombinedService>().InRequestScope();
             kernel.Bind<IObjectScopedByRequest>().To<ObjectScopedByRequest>().InRequestScope();
 
+            // Create an object in singleton scope. This GUID of this object should not change throughout the lifetime of the app.
             kernel.Bind<ISingletonObject>().To<SingletonObject>().InSingletonScope();
 
+            // Extra configuration options that are specific to Ninject. These services are here to just demonstrate HttpClient reuse
+            // when injecting it into a InRequestScope() object.
             kernel.Bind<HttpClient>().ToConstant(new HttpClient { BaseAddress = new Uri("https://my-json-server.typicode.com/typicode/demo/") })
-                .WhenInjectedInto<IFirstService>()
+                .WhenInjectedInto<IBlogService>()
                 .InSingletonScope();
 
             kernel.Bind<HttpClient>().ToConstant(new HttpClient { BaseAddress = new Uri("https://jsonplaceholder.typicode.com/") })
-                .WhenInjectedInto<ISecondService>()
+                .WhenInjectedInto<ITodoItemsService>()
                 .InSingletonScope();
 
         }

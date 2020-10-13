@@ -1,5 +1,5 @@
-using System.Web.Routing;
 using Microsoft.AspNet.FriendlyUrls;
+using System.Web.Routing;
 
 namespace Ninject.WebForms.Web
 {

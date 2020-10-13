@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ninject.Webforms {
+namespace Ninject.WebForms.Web {
     
     
     public partial class Site_Mobile {

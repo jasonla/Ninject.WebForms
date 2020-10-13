@@ -28,12 +28,12 @@
 // </copyright>
 // -------------------------------------------------------------------------------------------------
 
-using System.Linq;
-using System.Web;
-using System.Web.ModelBinding;
 using Ninject.Activation;
 using Ninject.Components;
 using Ninject.Web.Common;
+using System.Linq;
+using System.Web;
+using System.Web.ModelBinding;
 
 namespace Ninject.WebForms.Web
 {

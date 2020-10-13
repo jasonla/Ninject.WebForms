@@ -1,6 +1,6 @@
-﻿using System;
-using Ninject.WebForms.Services.Interfaces;
+﻿using Ninject.WebForms.Services.Interfaces;
 using Serilog;
+using System;
 
 namespace Ninject.WebForms.Services
 {

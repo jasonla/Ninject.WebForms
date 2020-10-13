@@ -3,7 +3,8 @@
 <%@ Register Src="ViewSwitcher.ascx" TagName="Switcher" TagPrefix="TSwitcher" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div><TSwitcher:Switcher ID="Thing" runat="server"></TSwitcher:Switcher><small>This switcher is a UserControl (ascx) with DI</small></div>
+    <div>
+        <TSwitcher:Switcher ID="Thing" runat="server"></TSwitcher:Switcher><small>This switcher is a UserControl (ascx) with DI</small></div>
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
@@ -19,17 +20,16 @@
                     <h3 class="panel-title">InRequestScope</h3>
                 </div>
                 <div class="panel-body">
-
                     <ul>
                         <li>
                             <p>
-                                Guid of <span class="firstService">IFirstService</span>:<br />
-                                <asp:Label runat="server" ID="firstServiceId" CssClass="firstService"></asp:Label>
+                                Guid of <span class="blogService">IBlogService</span>:<br />
+                                <asp:Label runat="server" ID="BlogServiceId" CssClass="blogService"></asp:Label>
                                 <ul>
                                     <li>
                                         <p>
-                                            Guid of <span class="scopedObject">IScopedObject</span> used in <span class="firstService">IFirstService</span>:<br />
-                                            <asp:Label runat="server" ID="ScopedObjectIdInFirstService" CssClass="scopedObject"></asp:Label>
+                                            Guid of <span class="scopedObject">IScopedObject</span> used in <span class="blogService">IBlogService</span>:<br />
+                                            <asp:Label runat="server" ID="ScopedBlogService" CssClass="scopedObject"></asp:Label>
                                         </p>
                                     </li>
                                 </ul>
@@ -37,14 +37,14 @@
                         </li>
                         <li>
                             <p>
-                                Guid of <span class="secondService">ISecondService</span><br />
+                                Guid of <span class="todoItemsService">ITodoItemsService</span><br />
 
-                                <asp:Label runat="server" ID="secondServiceId" CssClass="secondService"></asp:Label>
+                                <asp:Label runat="server" ID="TodoItemsServiceId" CssClass="todoItemsService"></asp:Label>
                                 <ul>
                                     <li>
                                         <p>
-                                            Guid of <span class="scopedObject">IScopedObject</span> used in <span class="secondService">ISecondService</span>:<br />
-                                            <asp:Label runat="server" ID="ScopedObjectIdInSecondService" CssClass="scopedObject"></asp:Label>
+                                            Guid of <span class="scopedObject">IScopedObject</span> used in <span class="todoItemsService">ITodoItemsService</span>:<br />
+                                            <asp:Label runat="server" ID="ScopedToDoItemsService" CssClass="scopedObject"></asp:Label>
                                         </p>
                                     </li>
                                 </ul>
@@ -53,28 +53,28 @@
                         </li>
                         <li>
                             <p>
-                                Guid of <span class="thirdService">IThirdService</span><br />
-                                <asp:Label runat="server" ID="thirdServiceId" CssClass="thirdService"></asp:Label>
+                                Guid of <span class="combinedService">ICombinedService</span><br />
+                                <asp:Label runat="server" ID="CombinedServiceId" CssClass="thirdService"></asp:Label>
                             </p>
                             <ul>
-                                <li>Guid of <span class="firstService">IFirstService</span> injected into <span class="thirdService">IThirdService</span><br />
-                                    <asp:Label runat="server" ID="thirdServiceGetFirstServiceId" CssClass="firstService"></asp:Label>
+                                <li>Guid of <span class="blogService">IBlogService</span> injected into <span class="combinedService">ICombinedService</span><br />
+                                    <asp:Label runat="server" ID="CombinedServiceGetBlogServiceGuid" CssClass="blogService"></asp:Label>
                                     <ul>
                                         <li>
                                             <p>
-                                                Guid of <span class="scopedObject">IScopedObject</span> used in <span class="firstService">IFirstService</span> of <span class="thirdService">IThirdService</span>:<br />
-                                                <asp:Label runat="server" ID="thirdServiceFirstServiceDependencyGuid" CssClass="scopedObject"></asp:Label>
+                                                GuGuid of <span class="scopedObject">IScopedObject</span> used in <span class="blogService">IBlogService</span> of <span class="combinedService">ICombinedService</span>:<br />
+                                                <asp:Label runat="server" ID="CombinedServiceBlogServiceGetDependencyGuid" CssClass="scopedObject"></asp:Label>
                                             </p>
                                         </li>
                                     </ul>
                                 </li>
-                                <li>Guid of <span class="secondService">ISecondService</span> injected into <span class="thirdService">IThirdService</span><br />
-                                    <asp:Label runat="server" ID="thirdServiceGetSecondServiceId" CssClass="secondService"></asp:Label>
+                                <li>Guid of <span class="todoItemsService">ITodoItemsService</span> injected into <span class="combinedService">ICombinedService</span><br />
+                                    <asp:Label runat="server" ID="CombinedServiceGetTodoItemsServiceGuid" CssClass="todoItemsService"></asp:Label>
                                     <ul>
                                         <li>
                                             <p>
-                                                Guid of <span class="scopedObject">IScopedObject</span> used in <span class="secondService">ISecondService</span> of <span class="thirdService">IThirdService</span>:<br />
-                                                <asp:Label runat="server" ID="thirdServiceSecondServiceDependencyGuid" CssClass="scopedObject"></asp:Label>
+                                                Guid of <span class="scopedObject">IScopedObject</span> used in <span class="todoItemsService">ITodoItemsService</span> of <span class="combinedService">ICombinedService</span>:<br />
+                                                <asp:Label runat="server" ID="CombinedServiceTodoItemsServiceGetDependencyGuid" CssClass="scopedObject"></asp:Label>
                                             </p>
                                         </li>
                                     </ul>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="panel-body">
                     <p>
-                        Guid of <span class="firstService">ISingletonObject</span><br />
+                        Guid of <span class="blogService">ISingletonObject</span><br />
                         <asp:Label runat="server" ID="singletonObjectId"></asp:Label>
                     </p>
                 </div>

@@ -1,16 +1,15 @@
 ﻿using Newtonsoft.Json;
-using Ninject.WebForms.Models.MyJsonServer;
+using Ninject.WebForms.Models.JsonPlaceholder;
 using Ninject.WebForms.Services.Interfaces;
 using Serilog;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Ninject.WebForms.Services
 {
-    public class FirstService : IFirstService
+    public class TodoItemsService : ITodoItemsService
     {
         private readonly IObjectScopedByRequest _objectScopedByRequest;
         private readonly HttpClient _client;
@@ -18,7 +17,7 @@ namespace Ninject.WebForms.Services
 
         public Guid Id { get; }
 
-        public FirstService(ILogger logger, IObjectScopedByRequest objectScopedByRequest, HttpClient client)
+        public TodoItemsService(ILogger logger, IObjectScopedByRequest objectScopedByRequest, HttpClient client)
         {
             Id = Guid.NewGuid();
 
@@ -26,18 +25,18 @@ namespace Ninject.WebForms.Services
             _objectScopedByRequest = objectScopedByRequest;
             _client = client;
 
-            _logger.Information("FirstService Constructor called. {Id}", Id);
+            _logger.Information("TodoItemsService Constructor called. {Id}", Id);
         }
 
         public Guid GetDependencyGuid()
         {
-            _logger.Information("FirstService.GetDependencyGuid: {Id}", _objectScopedByRequest.Id);
+            _logger.Information("TodoItemsService.GetDependencyGuid: {Id}", _objectScopedByRequest.Id);
             return _objectScopedByRequest.Id;
         }
 
-        public async Task<List<BlogPost>> GetBlogPosts()
+        public async Task<ToDoItem> GetToDoItem()
         {
-            var response = await _client.GetAsync("posts");
+            var response = await _client.GetAsync("todos/1");
             if (response.IsSuccessStatusCode)
             {
                 using (var responseStream = await response.Content.ReadAsStreamAsync())
@@ -45,8 +44,9 @@ namespace Ninject.WebForms.Services
                 using (JsonReader reader = new JsonTextReader(st))
                 {
                     JsonSerializer serializer = new JsonSerializer();
-                    return serializer.Deserialize<List<BlogPost>>(reader);
+                    return serializer.Deserialize<ToDoItem>(reader);
                 }
+
             }
 
             return null;

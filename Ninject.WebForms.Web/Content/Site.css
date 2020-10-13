@@ -30,17 +30,17 @@ textarea {
     }
 }
 
-.firstService {
+.blogService {
     /*font-weight: bold;*/
     color: red;
 }
 
-.secondService {
+.todoItemsService {
     /*font-weight: bold;*/
     color: blue;
 }
 
-.thirdService {
+.combinedService {
     /*font-weight: bold;*/
     color: green;
 }
